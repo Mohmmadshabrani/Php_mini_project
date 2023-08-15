@@ -17,6 +17,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   else{
     $id = $user[0]['id'];
     $_SESSION['logedIn'] = $id;
+
+    $updateStmt = $conn->prepare("UPDATE user SET last_login = NOW() WHERE id = :UserId");
+    $updateStmt->bindParam(':UserId', $id);
+    $updateStmt->execute();
+
     if ($id == 0)
       echo json_encode('admin');
     else

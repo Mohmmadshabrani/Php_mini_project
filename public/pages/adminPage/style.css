@@ -13,13 +13,37 @@ body {
   width: 100%;
   height: 100%;
   position: relative;
-  background: #fff;
+
 }
 .bg-img {
   height: 100%;
   width: 100%;
   background-size: cover;
   position: absolute;
+}
+.bg-img::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px); /* apply the blur */
+  pointer-events: none;
+}
+
+.bg-img {
+  height: 100%;
+  width: 100%;
+  background: url(../../images/bg.jpg) no-repeat center;
+  background-size: cover;
+  backdrop-filter: blur(10px);
+  position: absolute;
+}
+.bg-img::after {
+  content: "";
+  position: fixed;
+  top: 0; bottom: 0; left: 0; right: 0; 
+  background: rgba(0, 0, 0, 0.419);
+  pointer-events: none;
 }
 
 .mainbody {
@@ -30,6 +54,9 @@ body {
   display: flex;
   justify-content: center;
   position: relative;
+}
+.title{
+  color: #fff;
 }
 
 table {
