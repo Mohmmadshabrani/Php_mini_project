@@ -1,0 +1,114 @@
+
+
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: "Oxanium", cursive;
+  font-weight: 500;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.bg-img::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px); /* apply the blur */
+  pointer-events: none;
+}
+
+.bg-img {
+  height: 100%;
+  width: 100%;
+  background: url(../../images/bg.jpg) no-repeat center;
+  background-size: cover;
+  backdrop-filter: blur(10px);
+  position: absolute;
+}
+.bg-img::after {
+  content: "";
+  position: fixed;
+  top: 0; bottom: 0; left: 0; right: 0; 
+  background: rgba(0, 0, 0, 0.419);
+  pointer-events: none;
+}
+.mainbody {
+  top: 12.5%;
+  height: 75%;
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  position: relative;
+}
+.mainbody .left {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: #ffffff26;
+  border-radius: 2rem 0 0 2rem;
+  display: flex;
+  justify-content: center;
+}
+.mainbody .left .content{ 
+  position: relative;
+  top: 12.5%;
+  width: 75%;
+  height: 75%;
+  padding: min(3rem , 7vmin);
+  border-radius: 1rem;
+  background-color: #ffffff9c;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.mainbody .left .content .title{
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.mainbody .left .content .userinfo{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 50%;
+
+}
+.mainbody .left .content .userinfo div{
+  font-weight: 700;
+}
+
+.mainbody .right {
+  z-index: 1;
+  border-radius: 0 2rem 2rem 0;
+  background: #fff url(../../images/mainPage-img.svg) no-repeat center;
+}
+
+@media only screen and (max-width: 920px) {
+  .mainbody {
+    display: flex;
+    flex-direction: column;
+  }
+  .mainbody .right {
+    width: 100%;
+    height: inherit;
+    border-radius: 2rem 2rem 0 0;
+  }
+  .mainbody .left {
+    border-radius: 0 0 2rem 2rem;
+  }
+  .mainbody > .right {
+    order: 1;
+  }
+  .mainbody > .left {
+    order: 2;
+  }
+
+}
